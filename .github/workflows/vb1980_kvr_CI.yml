@@ -63,20 +63,6 @@ jobs:
           if [ -d vb1980/scripts ]; then cp -f vb1980/scripts/* $work_dir; fi
           cd $config_dir
           for m in $targets; do if [ -f $m.config ]; then \
-          ##删除配置##
-          sed -i '/CONFIG_FIRMWARE_INCLUDE_ARIA/d' $m.config
-          sed -i '/CONFIG_FIRMWARE_INCLUDE_ARIA_WEB_CONTROL/d' $m.config
-          sed -i '/CONFIG_FIRMWARE_INCLUDE_DOGCOM/d' $m.config
-          sed -i '/CONFIG_FIRMWARE_INCLUDE_MINIEAP/d' $m.config
-          sed -i '/CONFIG_FIRMWARE_INCLUDE_NJIT_CLIENT/d' $m.config
-          sed -i '/CONFIG_FIRMWARE_INCLUDE_VLMCSD/d' $m.config
-          ##重写配置##
-          echo "CONFIG_FIRMWARE_INCLUDE_ARIA=n" >> $m.config
-          echo "CONFIG_FIRMWARE_INCLUDE_ARIA_WEB_CONTROL=n" >> $m.config
-          echo "CONFIG_FIRMWARE_INCLUDE_DOGCOM=n" >> $m.config
-          echo "CONFIG_FIRMWARE_INCLUDE_MINIEAP=n" >> $m.config
-          echo "CONFIG_FIRMWARE_INCLUDE_NJIT_CLIENT=n" >> $m.config
-          echo "CONFIG_FIRMWARE_INCLUDE_VLMCSD=n" >> $m.config
           ##科学上网##
           echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=n" >> $m.config #科学上网插件，选择n后全部有关插件都不集成
           echo "CONFIG_FIRMWARE_INCLUDE_XRAY=n" >> $m.config #集成xray执行文件  ~4.5M
